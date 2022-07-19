@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  background: #280E44;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Play", sans-serif;
+  font-weight: 700;
+}
+
+.instruction {
+  padding: 5px 25px 5px 10px;
+  color: #9BA2FF;
+  margin-bottom: 30px;
+  display: flex;
+  border-radius: 4px;
+  align-items: flex-end;
+  line-height: 1.5;
+}
+
+.keys {
+  display: grid;
+  grid-template: 30px 30px/30px 30px 30px;
+  gap: 4px;
+  margin-right: 25px;
+}
+
+kbd {
+  border: 2px solid #9BA2FF;
+  border-radius: 2px;
+  box-shadow: #9BA2FF;
+  box-shadow: inset 0 -1px 0 0 #9BA2FF;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+kbd:nth-of-type(1) {
+  grid-area: 1/2;
+}
+kbd:nth-of-type(2) {
+  grid-area: 2/1;
+}
+kbd:nth-of-type(3) {
+  grid-area: 2/2;
+}
+kbd:nth-of-type(4) {
+  grid-area: 2/3;
+}
+
+.game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+canvas {
+  width: 400px;
+  height: 400px;
+}
+
+h1, h2, button {
+  font-family: "Press Start 2P", sans-serif;
+}
+
+h1 {
+  word-spacing: -2rem;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #fcc74c;
+  text-shadow: #EF476F 2px 2px 0px, #9BA2FF 4px 4px 0px, #470FF4 6px 6px 0px;
+}
+
+button {
+  position: absolute;
+  padding: 20px;
+  background: #470FF4;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 2px 10px 0 0 #15044d;
+  transition: all 0.15s ease;
+}
+button:hover {
+  background: #3e0adf;
+}
+button:active {
+  box-shadow: 2px 2px 0 0 #15044d;
+  transform: translate(0px, 8px);
+}
+
+button.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+dialog {
+  min-width: 400px;
+  min-height: 400px;
+  max-width: 600px;
+  padding: 25px;
+  border: none;
+  background: #fcc74c;
+  color: #280E44;
+  box-shadow: 3px 3px 0 0 #EF476F, 6px 6px 0 0 #9BA2FF, 9px 9px 0 0 #470FF4;
+}
+dialog .inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 400px;
+}
+dialog button {
+  position: relative;
+}
+dialog p, dialog span {
+  font-size: 1.25rem;
+  overflow-wrap: break-word;
+}
+dialog.ishighscore .highscore {
+  opacity: 1;
+  visibility: visible;
+}
+dialog h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #EF476F;
+  margin: 1rem 0 2rem;
+}
+dialog .score {
+  position: relative;
+  display: block;
+  padding: 20px;
+  background: #fcbf33;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+dialog .highscore {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  display: inline-block;
+  font-size: 1rem;
+  background-color: #470FF4;
+  color: white;
+  top: 85px;
+  right: 0;
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+dialog::-webkit-backdrop {
+  background: rgba(40, 14, 68, 0.5);
+}
+
+dialog::backdrop {
+  background: rgba(40, 14, 68, 0.5);
+}
+
+.mute {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  color: #9BA2FF;
+  display: flex;
+  justify-content: flex-start;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.mute i {
+  position: absolute;
+  opacity: 0;
+}
+.mute input:checked + i + i {
+  opacity: 1;
+}
+.mute input:not(:checked) + i {
+  opacity: 1;
+}
+.mute input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  -webkit-clip-path: rect(0, 0, 0, 0);
+          clip-path: rect(0, 0, 0, 0);
+}
